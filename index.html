@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" id="favicon" type="image/svg+xml" href="/favicon-white.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Barlow:wght@400;500&family=Montserrat&family=Poppins&family=Kalam&display=swap"
+      rel="stylesheet"
+    />
+    <title>Resilioo</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+
+    <script>
+      // Function to set the favicon based on the system color scheme
+      const setFavicon = () => {
+        const favicon = document.getElementById('favicon');
+        // Check if the system prefers dark mode
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          favicon.href = '/favicon-white.ico';
+        } else {
+          favicon.href = '/favicon-black.ico';
+        }
+      };
+      // Set the initial favicon based on the system color scheme
+      setFavicon();
+
+      // Listen for changes in the system color scheme and update the favicon accordingly
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setFavicon);
+    </script>
+  </body>
+</html>
